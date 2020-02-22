@@ -1,6 +1,3 @@
-// Use format from todo class app -
-// create referrence to express and express router- this file will hold and export all the routes in app
-
 var router = require("express").Router();
 var db = require("../../models");
 
@@ -18,4 +15,33 @@ router
     res.json(result);
   });
 
+router.route("/:id").get(async (req, res) => {
+  const user = await db.User.findByPk(req.params.id);
+  res.json(user);
+});
+
+router.route("/:id").put(async (req, res) => {
+  const updatedUser = await db.User.update(
+    {
+      email: req.body.email,
+      password: req.body.password
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  );
+  console.log("Error", updatedUser);
+  res.json(updatedUser);
+});
+
+router.route("/:id").delete(async (req, res) => {
+  const deletedUser = await db.User.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.json(deletedUser);
+});
 module.exports = router;
