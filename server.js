@@ -1,5 +1,4 @@
-// DEPENDENCIES / require all npm packages here - reference todo app
-// Series of npm packages that we will use to give our server useful functionality
+// DEPENDENCIES (npm packages) / requires to give our server useful functionality
 // ==============================================================================
 // this file creates express connection & runs node server
 
