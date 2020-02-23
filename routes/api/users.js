@@ -36,6 +36,18 @@ router.route("/:id").put(async (req, res) => {
   res.json(updatedUser);
 });
 
+router.route("/:id/trips").get(async (req, res) => {
+  const query = {
+    where: { UserId: req.params.id }
+  };
+
+  db.Trip.findAll(query).then(trips => {
+    res.json(trips);
+  });
+
+  
+});
+
 router.route("/:id").delete(async (req, res) => {
   const deletedUser = await db.User.destroy({
     where: {
