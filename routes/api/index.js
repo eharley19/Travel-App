@@ -1,7 +1,7 @@
 var router = require('express').Router();
 
 router.use('/users', require('./users'));
-// router.use('/lists', require('./lists'));
-// router.use('/todos', require('./todos'));
+router.use('/trips', require('./trips'));
+
 
 module.exports = router;

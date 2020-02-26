@@ -1,20 +1,19 @@
-const sequelize = require('../config');
-const { DataTypes } = require('sequelize');
-
-
-const User = sequelize.define('User', {
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      isEmail: true
+module.exports = function(sequelize, DataTypes) {
+  const User = sequelize.define("User", {
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      },
+      unique: true
     },
-    unique: true
-  },
-  password: DataTypes.STRING
-});
+    password: DataTypes.STRING
+  });
 
-User.sync();
+  User.associate = function(models) {
+    User.hasMany(models.Trip);
+  };
 
-
-module.exports = User;
+  return User;
+};

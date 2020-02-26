@@ -1,12 +1,59 @@
-// Use format from todo class app - 
-// create referrence to express and express router- this file will hold and export all the routes in app 
+var router = require("express").Router();
+var db = require("../../models");
 
+router
+  .route("/")
+  .get(async (req, res) => {
+    const users = await db.User.findAll();
+    res.json(users);
+  })
+  .post((req, res) => {
+    const result = db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    });
+    res.json(result);
+  });
 
-var router = require('express').Router();
-var Users = require('../../models/users');
+router.route("/:id").get(async (req, res) => {
+  const user = await db.User.findByPk(req.params.id);
+  res.json(user);
+});
 
+router.route("/:id").put(async (req, res) => {
+  const updatedUser = await db.User.update(
+    {
+      email: req.body.email,
+      password: req.body.password
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  );
+  console.log("Error", updatedUser);
+  res.json(updatedUser);
+});
 
-// api calls here; router.get, router.put, router.post, router.delete go here - 
+router.route("/:id/trips").get(async (req, res) => {
+  const query = {
+    where: { UserId: req.params.id }
+  };
 
+  db.Trip.findAll(query).then(trips => {
+    res.json(trips);
+  });
 
+  
+});
+
+router.route("/:id").delete(async (req, res) => {
+  const deletedUser = await db.User.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.json(deletedUser);
+});
 module.exports = router;

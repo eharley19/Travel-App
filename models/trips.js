@@ -1,20 +1,16 @@
-const sequelize = require('../config');
-const { DataTypes } = require('sequelize');
-const User = require('./users');
-
-const Trip = sequelize.define('Trip', {
+module.exports = function(sequelize, DataTypes) {
+  const Trip = sequelize.define("Trip", {
     name: DataTypes.STRING,
-    notes: DataTypes.BLOB
+    notes: DataTypes.STRING(3500)
+  });
 
-});
-
-Trip.belongsTo(User, {
-    foreignKey: {
+  Trip.associate = function(models) {
+    Trip.belongsTo(models.User, {
+      foreignKey: {
         allowNull: false
-    }
-});
+      }
+    });
+  };
 
-Trip.sync();
-
-module.exports = Trip;
-
+  return Trip;
+};
