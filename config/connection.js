@@ -12,8 +12,8 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     host: "localhost",
     user: "root",
-    password: process.env.mySql_Password,
-    database: ""
+    password: "myPassword1234*",
+    database: "gytt_db"
   });
 }
 // Export connection for ORM use
