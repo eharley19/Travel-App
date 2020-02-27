@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>forms for travel app</title>
+  <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet" />
+  {{!-- <link rel="stylesheet" href="./style.css" /> --}}
+</head>
+
+<body>
+  <h1>Where in the world are you going?</h1>
+
+
+  <div id="main-container" class="container">
+    <section class="container">
+      <img src="assets/images/luggage_logo.png" id="logo" class="suitcase" alt="suitcase">
+      <h2 id="contact">Your trips</h2>
+
+      <form id="contact-form">
+        <ul>
+          <li>
+            <label for="name">Destination</label>
+            <input type="text" name="name" id="name" placeholder="let's go!" required="required" />
+          </li>
+          {{!-- <li>
+            <label for="email">departure date</label>
+            <input type="text" name="email" id="email" placeholder="mm/dd/year" required="required" />
+          </li> --}}
+
+          <h4>Toss the sticky notes and use ours instead!</h4>
+          <li>
+            <label for="message">Notes</label>
+            <textarea id="message" name="message" required="required"></textarea>
+          </li>
+        </ul>
+
+  </div>
+  </section>
+
+  <input type="submit" name="submit" id="button" />
+  </form>
+  </section>
+  </div>
+</body>
+
+</html>

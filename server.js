@@ -18,6 +18,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 
+app.get("/trips", (req, res) => {
+  res.render("trips");
+});
+
+app.get("/sign-up", (req, res) => {
+  res.render("form");
+});
 app.get("/", (req, res) => {
   res.render("index");
 });

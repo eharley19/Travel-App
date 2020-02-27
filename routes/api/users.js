@@ -8,11 +8,12 @@ router
     res.json(users);
   })
   .post((req, res) => {
+    console.log(req.body);
     const result = db.User.create({
       email: req.body.email,
       password: req.body.password
     });
-    res.json(result);
+    res.redirect("/");
   });
 
 router.route("/:id").get(async (req, res) => {
@@ -44,8 +45,6 @@ router.route("/:id/trips").get(async (req, res) => {
   db.Trip.findAll(query).then(trips => {
     res.json(trips);
   });
-
-  
 });
 
 router.route("/:id").delete(async (req, res) => {

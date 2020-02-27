@@ -2,9 +2,6 @@
     <div class="navbar-brand">
         <img src="assets/images/luggage_logo.png" id="logo" class="suitcase" alt="suitcase">
 
-        <!-- <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-              </a> -->
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
             data-target="navbarBasicExample">
@@ -43,8 +40,9 @@
     <div class="navbar-end">
         <div class="navbar-item">
             <div class="buttons">
-                <button class="button is-info is-outlined" id="signup">Sign up</button>
-                <button class="button is-info is-outlined">Check in</button>
+                <a href="/sign-up">
+                    <button class="button is-info is-outlined">Sign up</button></a>
+                <a href="/trips"><button class="button is-info is-outlined">My trips</button></a>
             </div>
         </div>
     </div>
@@ -71,7 +69,7 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
-                Get Your Trip Together
+                Get Your Trip Together!
             </h1>
             {{!-- <h2 class="subtitle">Let's<strong> GO </strong>!</h2> --}}
         </div>
@@ -88,12 +86,11 @@
             <img src="assets/images/happy_traveler_.jpg" class="portrait" id="welcome-home" alt="Eiffel Tower" />
         </div>
 
-        <h2 id="about-gytt"><strong>Throw away the sticky notes!
-            </strong></h2>
-        <p>Create an account and GYTT will track your trips, activities, along with
-            a trip specific packing list which you can continually edit, update
+        <h2><strong>Toss the sticky notes!</strong></h2>
+        {{!-- <p>Simply reate an account and let us track your trips, activities
+            and packing lists which you can continually edit, update
             and save for your next trip.
-        </p>
+        </p> --}}
 
     </section>
 </div>
@@ -111,7 +108,7 @@
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>"Check-in" with us to receive the latest <strong>promos</strong> and travel swag!</p>
+        <p>"Check-in" with us to receive the latest <strong>promos</strong> and travel swag.</p>
 
         <div id="connect">
             {{!-- <h6>"Check-in" with us for <strong>promos</strong> and travel swag!</h6> --}}

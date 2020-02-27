@@ -8,12 +8,13 @@ router
     res.json(trips);
   })
   .post((req, res) => {
+    console.log(req.body);
     const result = db.Trip.create({
       name: req.body.name,
       notes: req.body.notes,
       UserId: req.body.UserId
     });
-    res.json(result);
+    res.redirect("/");
   });
 
 router.route("/:id").put(async (req, res) => {
